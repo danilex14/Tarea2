@@ -1,0 +1,34 @@
+# Redis 7 + HBase (Lab 07). Persistencia de Redis: AOF con appendfsync everysec (ver README).
+# Para el experimento D.2 se cambia con REDIS_FLAGS (ver fallas_d2.sh), sin editar este archivo.
+name: t2
+services:
+  redis:
+    image: redis:7
+    command: ["sh", "-c", "eval redis-server $${REDIS_FLAGS}"]
+    environment:
+      REDIS_FLAGS: ${REDIS_FLAGS:---appendonly yes --appendfsync everysec --save ""}
+    ports: ["6379:6379"]
+    volumes: ["redis-data:/data"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  hbase:
+    build: ./hbase
+    image: pmd-hbase
+    container_name: pmd-hbase
+    hostname: pmd-hbase             # HBase registra su hostname en ZooKeeper: debe ser fijo
+    ports: ["9090:9090", "16010:16010"]   # Thrift (happybase) · UI/JMX del HMaster (standalone: mismo proceso)
+    volumes: ["hbase-data:/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "echo \"exists 'hbase:meta'\" | hbase shell -n 2>/dev/null | grep -q 'does exist'"]
+      interval: 10s
+      timeout: 30s
+      retries: 18
+      start_period: 20s
+
+volumes:
+  redis-data: { name: t2_redis_data }
+  hbase-data: { name: t2_hbase_data }

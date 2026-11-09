@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.parquet
+*.csv
+*.rdb
+*.aof
+.env
+data/
+resultados/*.log
