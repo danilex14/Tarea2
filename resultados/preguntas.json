@@ -1,0 +1,180 @@
+{
+  "P1": {
+    "ms_redis": 4.06299999986004,
+    "ms_hbase": 409.3881999999667,
+    "top5_redis": [
+      [
+        "SPP-002",
+        98.0
+      ],
+      [
+        "HUA-002",
+        97.1
+      ],
+      [
+        "HUA-001",
+        90.1
+      ],
+      [
+        "PEN-001",
+        68.6
+      ],
+      [
+        "CC-002",
+        62.7
+      ]
+    ],
+    "top5_hbase": [
+      [
+        "SPP-002",
+        98.0
+      ],
+      [
+        "HUA-002",
+        97.1
+      ],
+      [
+        "HUA-001",
+        90.1
+      ],
+      [
+        "PEN-001",
+        68.6
+      ],
+      [
+        "CC-002",
+        62.7
+      ]
+    ],
+    "coincide_con_hbase": true,
+    "difieren_medicion_vs_llegada": {
+      "TAL-001": {
+        "por_medicion": {
+          "valor": "41.0",
+          "ts": "1794023980500",
+          "tipo": "flujo_vehicular"
+        },
+        "por_llegada": {
+          "valor": "48.9",
+          "ts": "1794023928335"
+        }
+      }
+    },
+    "nota": "stream recortado por MAXLEN: la comparación vale para entradas aún presentes"
+  },
+  "P2": {
+    "ms": 20.89269999987664,
+    "ancla_ms": 1794023999500,
+    "promedios_(media,n)": {
+      "CC-001": [
+        20.889333333333333,
+        75
+      ],
+      "CC-002": [
+        58.879411764705885,
+        68
+      ],
+      "CC-005": [
+        18.665714285714284,
+        70
+      ],
+      "HUA-001": [
+        92.07741935483871,
+        62
+      ],
+      "HUA-002": [
+        76.5044776119403,
+        67
+      ],
+      "PEN-001": [
+        87.3360465116279,
+        86
+      ],
+      "SPP-002": [
+        93.13066666666667,
+        75
+      ],
+      "TAL-001": [
+        34.45,
+        74
+      ]
+    },
+    "memory_usage_ventana_recortada": 2616,
+    "memory_usage_hora_completa": 44552,
+    "nota": "ventana = [ancla-10min, ancla]; sorted set por ts: rango por score en O(log N + M)"
+  },
+  "P3": {
+    "n": 891,
+    "n_fullscan": 891,
+    "ms_scan_rango": 25.302900000042428,
+    "ms_scan_total": 7373.61460000011,
+    "veces_mas_lento": 291.41381422634345,
+    "prom_por_cuarto": {
+      "08:00": 15.608035714285714,
+      "08:15": 25.6704,
+      "08:30": 17.1340206185567,
+      "08:45": 25.87403846153846,
+      "09:00": 24.40258620689655,
+      "09:15": 18.095604395604397,
+      "09:30": 19.2421875,
+      "09:45": 17.49322033898305
+    }
+  },
+  "P4": {
+    "ms_a_lecturas+catalogo_redis": 118.61969999995381,
+    "ms_b_lecturas_tipo": 74.38669999987724,
+    "iguales": true,
+    "resultado": {
+      "CC-004": {
+        "prom": 68.08836944127708,
+        "max": 80.0,
+        "hora_max": "07:22:15.000"
+      },
+      "CHI-001": {
+        "prom": 62.17809734513274,
+        "max": 80.0,
+        "hora_max": "07:07:14.500"
+      },
+      "COR-001": {
+        "prom": 22.777303370786516,
+        "max": 52.3,
+        "hora_max": "08:18:32.500"
+      },
+      "TAL-003": {
+        "prom": 48.142458100558656,
+        "max": 76.5,
+        "hora_max": "07:27:43.500"
+      }
+    },
+    "escrituras_extra": "1 put adicional por evento (871,200 aprox.)",
+    "disco": {
+      "lecturas": "142032 KB",
+      "lecturas_tipo": "246088 KB"
+    }
+  },
+  "P6": {
+    "ms": 4424.87159999996,
+    "resultado": {
+      "CC-004": {
+        "ultimo": 73.4,
+        "p95_hist": 80.0,
+        "alerta": false
+      },
+      "CHI-001": {
+        "ultimo": 67.8,
+        "p95_hist": 75.0,
+        "alerta": false
+      },
+      "COR-001": {
+        "ultimo": 19.4,
+        "p95_hist": 37.2,
+        "alerta": false
+      },
+      "TAL-003": {
+        "ultimo": 45.0,
+        "p95_hist": 61.0,
+        "alerta": false
+      }
+    }
+  }
+}

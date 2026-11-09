@@ -1,0 +1,1 @@
+carga histórica: 864000 eventos x 2 tablas en 145.1 s -> 5,954 eventos/s (11,908 filas/s)

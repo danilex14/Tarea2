@@ -1,0 +1,7 @@
+eventos producidos: 7200 (esperado 7200)
+XLEN del stream (recortado con MAXLEN~20000): 7200
+grupo ingesta: entradas leídas=7200 pendientes=0 lag=0
+grupo tablero: entradas leídas=7200 pendientes=0 lag=0
+filas en lecturas: 853953 (control 853953)
+filas en lecturas_tipo: 853953 (control 853953)
+RESULTADO: TODO CALZA
