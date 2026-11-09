@@ -1,0 +1,25 @@
+redis limpio, grupos: ['ingesta', 'tablero']
+c1 muriÃ³ (cÃ³digo 1)
+--- 1) quÃ© quedÃ³ pendiente
+XPENDING ingesta: {'pending': 43, 'min': '1794185901408-0', 'max': '1794185901599-0', 'consumers': [{'name': 'c1', 'pending': 43}]}
+ingesta pendientes: 43 consumidores: 1
+tablero pendientes: 1 consumidores: 1
+[('c1', 43)]
+--- 2) otro consumidor recupera (XAUTOCLAIM) y sigue
+productor: 7200 eventos en 180.0 s
+tablero terminado
+[c2] recuperadas y escritas 43 entradas pendientes
+[c2] ingesta terminada (7043 lotes)
+--- 3) HBase vs nÃºmeros de control
+eventos producidos: 7200 (esperado 7200)
+XLEN del stream (recortado con MAXLEN~20000): 7200
+grupo ingesta: entradas leídas=7200 pendientes=0 lag=0
+grupo tablero: entradas leídas=7200 pendientes=0 lag=0
+filas en lecturas: 853953 (control 853953)
+filas en lecturas_tipo: 853953 (control 853953)
+RESULTADO: TODO CALZA
+--- 4) versiones en las celdas reprocesadas
+CC-003#2026-11-07T00:00:00.000-03:00 -> versiones: [b'53.9', b'53.9']
+SPP-002#2026-11-06T23:59:12.986-03:00 -> versiones: [b'109.7', b'109.7']
+SPP-002#2026-11-07T00:00:01.000-03:00 -> versiones: [b'101.4', b'101.4']
+celdas con >1 versión (muestra): 3
